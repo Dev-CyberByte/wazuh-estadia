@@ -1,0 +1,18 @@
+## /etc/audit/rules.d/audit.rules
+## Aplicar con: sudo augenrules --load   (o reiniciar auditd)
+
+# 1) Limpieza de reglas previas, búfer y backlog
+-D
+-b 8192
+--backlog_wait_time 60000
+
+# 2) Ejecución de comandos como root (clave que usa Wazuh: audit-wazuh-c)
+-a exit,always -F arch=b64 -F euid=0 -S execve -k audit-wazuh-c
+-a exit,always -F arch=b32 -F euid=0 -S execve -k audit-wazuh-c
+
+# 3) Cambios de privilegios y cuentas
+-w /etc/sudoers -p wa -k priv_esc
+-w /etc/passwd  -p wa -k user_modify
+
+# 4) Permite a Wazuh insertar reglas de Whodata
+-e 1
