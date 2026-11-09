@@ -10,6 +10,13 @@
 
 ---
 
+## 📖 Documentación
+
+- 🛠️ [Guía de instalación y configuración](docs/instalacion.md)
+- 📚 [Marco teórico](docs/marco-teorico.md)
+
+---
+
 ## Contexto académico
 
 | | |
@@ -79,7 +86,8 @@ Integrar y configurar Wazuh para fortalecer el **monitoreo, la detección y la g
 │   ├── atomic-red-team.md           # pruebas de detección + mapeo MITRE ATT&CK
 │   └── virustotal.md                # integración y pruebas con VirusTotal
 └── docs/
-    ├── instalacion.md               # (opcional) guía detallada
+    ├── instalacion.md               # guía de instalación y configuración paso a paso
+    ├── marco-teorico.md             # fundamento teórico (SIEM, XDR, Wazuh, Sysmon, auditd...)
     └── img/                         # capturas (sin datos sensibles)
 ```
 
@@ -121,8 +129,6 @@ sudo systemctl status wazuh-manager wazuh-indexer wazuh-dashboard filebeat
 ```
 
 > ⚠️ El asistente muestra una advertencia en Oracle Linux 8.10 (no figura en su lista de SO recomendados, aunque RHEL 8 sí). La instalación concluyó y los servicios iniciaron correctamente; debe validarse antes de pasar a producción.
-
-> 🔐 Las credenciales las genera el instalador (`wazuh-install-files.tar`). **Nunca** las subas al repositorio.
 
 ## 2. Despliegue de agentes
 
