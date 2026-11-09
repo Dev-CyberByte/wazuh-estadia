@@ -1,0 +1,34 @@
+<!-- Fragmentos relevantes de /var/ossec/etc/ossec.conf (Manager) -->
+
+<ossec_config>
+
+  <!-- Nivel mínimo de alerta: registro (3) y correo (12) -->
+  <alerts>
+    <log_alert_level>3</log_alert_level>
+    <email_alert_level>12</email_alert_level>
+  </alerts>
+
+  <!-- Detección de vulnerabilidades -->
+  <vulnerability-detection>
+    <enabled>yes</enabled>
+    <index-status>yes</index-status>
+    <feed-update-interval>60m</feed-update-interval>
+  </vulnerability-detection>
+
+  <!-- SCA: escaneo al iniciar y cada 12 h -->
+  <sca>
+    <enabled>yes</enabled>
+    <scan_on_start>yes</scan_on_start>
+    <interval>12h</interval>
+  </sca>
+
+  <!-- Integración con VirusTotal (ver pruebas/virustotal.md)
+       ⚠️ Reemplaza TU_API_KEY localmente. -->
+  <integration>
+    <name>virustotal</name>
+    <api_key>TU_API_KEY</api_key>
+    <group>syscheck</group>
+    <alert_format>json</alert_format>
+  </integration>
+
+</ossec_config>
